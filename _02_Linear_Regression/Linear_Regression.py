@@ -18,9 +18,9 @@ def ridge(data):
 def lasso(data):
     x, y = read_data()
     weight = np.ones(6)
-    rate = 1e-12
+    rate = 1e-9
     label = 1e-6
-    for i in range(int(1e5)):
+    for i in range(int(2e6)):
         Y = np.matmul(weight, x.T)
         loss = (np.sum(Y - y) ** 2 + 0.1*np.linalg.norm(weight,ord=1))/6
         if loss < label :
