@@ -10,7 +10,7 @@ except ImportError as e:
 
 def ridge(data):
     x,y=read_data()
-    lam=2e-10
+    lam=2e-8
     weight=np.matmul(np.linalg.pinv(np.matmul(x.T,x)+np.dot(lam,np.eye(6))),np.matmul(x.T,y))
     return weight @ data
     pass
@@ -20,7 +20,7 @@ def lasso(data):
     weight = np.ones(6)
     rate = 1e-12
     label = 1e-5
-    for i in range(int(1e10)):
+    for i in range(int(1e6)):
         Y = np.matmul(weight, x.T)
         loss = np.sum(Y - y) ** 2 + np.linalg.norm(weight,ord=1)
         if loss < label :
