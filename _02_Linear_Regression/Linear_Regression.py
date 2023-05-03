@@ -21,7 +21,7 @@ def lasso(data):
     rate = 1e-12
     label = 1e-5
     for i in range(int(1e10)):
-        Y = np.matmul(weight, x)
+        Y = np.matmul(weight, x.T)
         loss = np.sum(Y - y) ** 2 + np.linalg.norm(weight,ord=1)
         if loss < label :
             break
