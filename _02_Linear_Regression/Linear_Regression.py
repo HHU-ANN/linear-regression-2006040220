@@ -25,7 +25,7 @@ def lasso(data):
         loss = np.sum(Y - y) ** 2 + np.linalg.norm(weight,ord=1)
         if loss < label :
             break
-        dweight=np.matmul((Y - y),x.T)
+        dweight=np.matmul((Y - y).T,x)
         weight=weight-rate * dweight
     return weight @ data
     pass
