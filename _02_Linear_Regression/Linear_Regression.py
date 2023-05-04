@@ -19,7 +19,7 @@ def lasso(data):
     x, y = read_data()
     weight = np.ones(6)
     rate = 1e-10
-    label = 1e-6
+    label = 1e-7
     for i in range(int(1e6)):
         Y = np.matmul(weight, x.T)
         loss = (np.sum(Y - y) ** 2 + 5*np.linalg.norm(weight,ord=1))/6
