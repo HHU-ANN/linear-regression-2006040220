@@ -18,7 +18,7 @@ def ridge(data):
 def lasso(data):
     x, y = read_data()
     weight = np.ones(6)
-    rate = 1e-9
+    rate = 1e-10
     label = 1e-6
     for i in range(int(1e6)):
         Y = np.matmul(weight, x.T)
